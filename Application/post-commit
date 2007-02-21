@@ -1,0 +1,102 @@
+#!/usr/bin/php
+<?php
+	/* This script is called by Subversion whenever a new commit occurs.
+		It updates a text log and an RSS feed of the commit log in the htdocs
+		directory. */
+	
+	$repospath = $_SERVER['argv'][1];
+	$newrevision = $_SERVER['argv'][2];
+	
+	// First, we get the new message and append it to our text log:
+	$contents = "========================================\n".$newrevision."\n";
+	
+	$command = "/Applications/MAS.app/Contents/Resources/MAS/bin/svnlook info -r ".escapeshellarg($newrevision)
+				." ".escapeshellarg($repospath)." 2>&1";
+	$fd = popen( $command, "r" );
+	while( !feof($fd) )
+		$contents .= fread($fd, 8192);
+	pclose($fd);
+	
+	$command = "/Applications/MAS.app/Contents/Resources/MAS/bin/svnlook changed -r ".escapeshellarg($newrevision)
+				." ".escapeshellarg($repospath)." 2>&1";
+	$fd = popen( $command, "r" );
+	while( !feof($fd) )
+		$contents .= fread($fd, 8192);
+	pclose($fd);
+	
+	$contents = str_replace("\r\n","\n",$contents);
+	$contents = str_replace("\r","\n",$contents);
+	
+	$dirpath = "/Library/Application Support/MAS/htdocs/";
+	$filepath = $dirpath."commitlog.txt";
+	$rssfilepath = $dirpath."commitlog.rss";
+	if( !file_exists($dirpath) )
+		mkdir( $dirpath );
+
+	$fd = fopen($filepath,"a+");
+	fwrite($fd,$contents);
+	fclose( $fd );
+
+	// Now we read the text log back in and output it as an RSS feed:
+	
+	$commitrss = '<?xml version="1.0" encoding="ISO-8859-1"?>
+<rss version="2.0">
+<channel>
+<description>RSS Commit Log for '.$repospath.'</description>
+<title>RSS Commit Log for '.$repospath.'</title>';
+	
+	$linecounter = $commitmsglen = 0;
+	$username = $moddate = $revision = $text = "";
+	$commits = file($filepath);
+	for( $x = 1; $x < sizeof($commits); $x++ )	// Skip line 1, that's our "====" marker
+	{
+		$linecounter++;
+		if( $linecounter == 2 )
+			$username = trim($commits[$x],"\n\r");
+		else if( $linecounter == 3 )
+			$moddate = trim($commits[$x],"\n\r");
+		else if( $linecounter == 1 )
+			$revision = trim($commits[$x],"\n\r");
+		else if( $linecounter == 4 )	// 4 is length of following text. Ignore for now.
+			$commitmsglen = trim($commits[$x],"\n\r");
+		else if( strcmp(trim($commits[$x],"\n\r"), "========================================") == 0 )
+		{
+			$commitmsg = substr($text,0,$commitmsglen);
+			$changestext = substr($text,$commitmsglen +1);	// +1 because terminal inserts a line break after it.
+			$commitrss .= writeOneItem( $username, $moddate, $revision, $commitmsg, $changestext );
+			$linecounter = $commitmsglen = 0;
+			$username = $moddate = $revision = $text = "";
+		}
+		else
+			$text .= $commits[$x];
+	}
+	
+	$commitmsg = substr($text,0,$commitmsglen);
+	$changestext = substr($text,$commitmsglen +1);	// +1 because terminal inserts a line break after it.
+	$commitrss .= writeOneItem( $username, $moddate, $revision, $commitmsg, $changestext );
+	$commitrss .= '</channel>
+</rss>';
+	
+	$fd = fopen($rssfilepath,"w");
+	fwrite($fd,$commitrss);
+	fclose( $fd );
+	
+	function writeOneItem( $username, $moddate, $revision, $commitmsg, $changestext )
+	{
+		if( $username == "" )
+			$username = "UNKNOWN";
+		if( $moddate == "" )
+			$moddate = "?";
+		else
+		{
+			$endpos = strpos($moddate,"(");
+			$moddate = substr($moddate,0,$endpos);
+		}
+		return "<item>\n<title>".htmlentities($revision).": ".htmlentities($username)." at ".htmlentities($moddate)."</title>\n"
+				."<description>".str_replace("\n","<br />\n",htmlentities($commitmsg))."<br />\n<br />\n"
+				."Changed Files:<br />".str_replace("\n","<br />\n",htmlentities($changestext))
+				."<pubDate>".htmlentities($moddate)."</pubDate>"
+				."<guid>".htmlentities($revision)."</guid>"
+				."</description>\n</item>\n";
+	}
+?>

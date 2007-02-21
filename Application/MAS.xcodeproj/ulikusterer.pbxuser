@@ -1,0 +1,201 @@
+// !$*UTF8*$!
+{
+	041A2D670A86FCEF002741DD /* MASAppDelegate.m:377 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = 3D5E0ED70A699F3F00E18439 /* MASAppDelegate.m */;
+		functionName = "-textView:clickedOnLink:atIndex:";
+		hitCount = 1;
+		lineNumber = 377;
+		location = MASAppDelegate.ob;
+		modificationTime = 176618806.06095;
+		state = 1;
+	};
+	041D859F0A82B63B00EE2356 /* MAS */ = {
+		isa = PBXExecutable;
+		activeArgIndex = 2147483647;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = MAS;
+		savedGlobals = {
+		};
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	041D85AB0A82B65C00EE2356 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+		scmType = "";
+	};
+	041D85AC0A82B65C00EE2356 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	04251F7E0A8657C700DD7898 /* MASAppDelegate.m:214 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = 3D5E0ED70A699F3F00E18439 /* MASAppDelegate.m */;
+		functionName = "-createUser:";
+		hitCount = 1;
+		lineNumber = 214;
+		location = MASAppDelegate.ob;
+		modificationTime = 176618805.782724;
+		state = 1;
+	};
+	042566E40A86ACE600750E28 /* XCBreakpointsBucket */ = {
+		isa = XCBreakpointsBucket;
+		name = "Project Breakpoints";
+		objects = (
+			04251F7E0A8657C700DD7898 /* MASAppDelegate.m:214 */,
+			041A2D670A86FCEF002741DD /* MASAppDelegate.m:377 */,
+		);
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Release;
+		activeExecutable = 041D859F0A82B63B00EE2356 /* MAS */;
+		activeTarget = 8D1107260486CEB800E47090 /* MAS */;
+		addToTargets = (
+			8D1107260486CEB800E47090 /* MAS */,
+		);
+		breakpoints = (
+			04251F7E0A8657C700DD7898 /* MASAppDelegate.m:214 */,
+			041A2D670A86FCEF002741DD /* MASAppDelegate.m:377 */,
+		);
+		breakpointsGroup = 042566E40A86ACE600750E28 /* XCBreakpointsBucket */;
+		codeSenseManager = 041D85AC0A82B65C00EE2356 /* Code sense */;
+		executables = (
+			041D859F0A82B63B00EE2356 /* MAS */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXExecutablesDataSource_NameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					22,
+					300,
+					131,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXExecutablesDataSource_ActiveFlagID,
+					PBXExecutablesDataSource_NameID,
+					PBXExecutablesDataSource_CommentsID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					243,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					200,
+					63,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 176821255;
+			PBXWorkspaceStateSaveDate = 176821255;
+		};
+		sourceControlManager = 041D85AB0A82B65C00EE2356 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	3D276EF20A6A5C0A0094AD8E /* Credits.html */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {726, 616}}";
+			sepNavSelRange = "{270, 0}";
+			sepNavVisRect = "{{0, 0}, {726, 616}}";
+			sepNavWindowFrame = "{{15, 52}, {765, 689}}";
+		};
+	};
+	3D5E0ED60A699F3F00E18439 /* MASAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {726, 714}}";
+			sepNavSelRange = "{874, 8}";
+			sepNavVisRect = "{{0, 0}, {726, 616}}";
+			sepNavWindowFrame = "{{61, 10}, {765, 689}}";
+		};
+	};
+	3D5E0ED70A699F3F00E18439 /* MASAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1478, 5446}}";
+			sepNavSelRange = "{12216, 0}";
+			sepNavVisRect = "{{0, 4830}, {726, 616}}";
+			sepNavWindowFrame = "{{196, 48}, {765, 689}}";
+		};
+	};
+	3DBCDAF30A6EBD8300F954C1 /* TODO.txt */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {726, 616}}";
+			sepNavSelRange = "{177, 0}";
+			sepNavVisRect = "{{0, 0}, {726, 616}}";
+			sepNavWindowFrame = "{{15, 52}, {765, 689}}";
+		};
+	};
+	8D1107260486CEB800E47090 /* MAS */ = {
+		activeExec = 0;
+		executables = (
+			041D859F0A82B63B00EE2356 /* MAS */,
+		);
+	};
+}

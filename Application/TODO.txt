@@ -1,0 +1,16 @@
+ √ If a login attempt caused the "New User" window to be shown, ask user whether
+   to continue starting the server, now that we have a user.
+-> Turn this thing into a PrefPane?
+ √ Put first user as only person allowed to read/write into permissions file.
+ √ Only show repository browser (and ask for login) when it's shown explicitly.
+-> Can we delete the "build" and "share" subfolders that Apache asks for?
+-> Can we delete "htdocs" now that we reroute it to /Library/Application Support?
+-> Do we want to keep the "icons" directory's contents?
+-> What about the "include" folder?
+-> What about the "man" folder?
+-> What about the "manual" folder?
+-> What about the "lib" folder? We probably need the dylibs, but the others?
+-> Add code to clear out logs periodically? Maybe reroute them to AppSupport as well?
+-> Clear out the examples in "cgi-bin".
+-> What about "bin"? Can we get rid of the xxx-config tools? svnserve? What else?
+-> Complain when no project name specified for import.

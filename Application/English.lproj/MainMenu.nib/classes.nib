@@ -1,0 +1,91 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {
+                cancelCreateUserSheet = id; 
+                createUser = id; 
+                delete = id; 
+                showCreateUserSheet = id; 
+                showCreateUserSheetForUserName = id; 
+                showSVNBrowser = id; 
+                shutDownServer = id; 
+                startStopMAS = id; 
+                startUpServer = id; 
+            }; 
+            CLASS = MASAppDelegate; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                confirmPasswordField = NSTextField; 
+                createUserButton = NSButton; 
+                passwordField = NSTextField; 
+                progress = NSProgressIndicator; 
+                startButton = NSButton; 
+                urlField = NSTextView; 
+                userNameField = NSTextField; 
+                usersAndGroupsView = UKDistributedView; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = NSObject; LANGUAGE = ObjC; }, 
+        {
+            ACTIONS = {
+                addNewPermissionsEntry = id; 
+                addProject = id; 
+                delete = id; 
+                refreshNewProjectName = id; 
+                reloadRepository = id; 
+                reloadRepositoryAuthorized = id; 
+                removePermissionsEntry = id; 
+                showSVNBrowserWindow = id; 
+            }; 
+            CLASS = SVNBrowserAppDelegate; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                listView = NSOutlineView; 
+                permissionsView = NSTableView; 
+                projectNameField = NSTextField; 
+                projectPathField = UKFilePathView; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {
+                cellClicked = id; 
+                deselectAll = id; 
+                positionAllItems = id; 
+                rescrollItems = id; 
+                selectAll = id; 
+                snapAllItemsToGrid = id; 
+                toggleDrawsGrid = id; 
+                toggleSnapToGrid = id; 
+            }; 
+            CLASS = UKDistributedView; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                dataSource = id; 
+                delegate = id; 
+                prototype = NSCell; 
+                reserved1 = id; 
+                reserved2 = id; 
+                reserved3 = id; 
+                reserved4 = id; 
+            }; 
+            SUPERCLASS = NSView; 
+        }, 
+        {
+            ACTIONS = {
+                pickFile = id; 
+                pickNewFile = id; 
+                revealInFinder = id; 
+                showRealNames = id; 
+                toggleShowRealNames = id; 
+            }; 
+            CLASS = UKFilePathView; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {target = id; }; 
+            SUPERCLASS = NSView; 
+        }
+    ); 
+    IBVersion = 1; 
+}

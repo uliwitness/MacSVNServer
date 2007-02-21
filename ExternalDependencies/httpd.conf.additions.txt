@@ -1,0 +1,17 @@
+
+
+<Location /svn>
+  DAV svn
+  SVNPath "/Library/Application Support/MAS/repositories"
+  
+  AuthzSVNAccessFile "/Library/Application Support/MAS/svn-access-file"
+  
+  Satisfy Any
+  Require valid-user
+  
+  AuthType Basic
+  AuthName "MAS Subversion Repository"
+  AuthUserFile "/Library/Application Support/MAS/svn-auth-file"
+  
+  SVNAutoversioning on
+</Location>

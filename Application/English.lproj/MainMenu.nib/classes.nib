@@ -23,7 +23,7 @@
                 startButton = NSButton; 
                 urlField = NSTextView; 
                 userNameField = NSTextField; 
-                usersAndGroupsView = UKDistributedView; 
+                usersAndGroupsView = NSOutlineView; 
             }; 
             SUPERCLASS = NSObject; 
         }, 

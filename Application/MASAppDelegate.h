@@ -1,9 +1,39 @@
-/* MASAppDelegate */
+/* =============================================================================
+
+File: MASAppDelegate.h
+
+Copyright (c) 2006 by M. Uli Kusterer.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+============================================================================= */
+
+// -----------------------------------------------------------------------------
+//	Headers:
+// -----------------------------------------------------------------------------
 
 #import <Cocoa/Cocoa.h>
-#import "UKDistributedView.h"
 #import "UKSVNBrowser.h"
 
+
+// -----------------------------------------------------------------------------
+//	Constants:
+// -----------------------------------------------------------------------------
 
 // File paths:
 //	This uses a trick: You can concatenate NSStrings by writing
@@ -24,6 +54,10 @@
 #define	POST_COMMIT_HOOK_FILE_PATH	HOOKS_FOLDER_PATH "post-commit"
 
 
+// -----------------------------------------------------------------------------
+//	Classes:
+// -----------------------------------------------------------------------------
+
 @interface MASAppDelegate : NSObject
 {
     IBOutlet NSButton				*	startButton;
@@ -33,7 +67,7 @@
     IBOutlet NSTextField			*	confirmPasswordField;
 	IBOutlet NSButton				*	createUserButton;
 	IBOutlet NSProgressIndicator	*	progress;
-	IBOutlet UKDistributedView		*	usersAndGroupsView;
+	IBOutlet NSOutlineView			*	usersAndGroupsView;
 	NSMutableArray					*	userList;
 	BOOL								isRunning;
 	BOOL								retryStartUpAfterUserCreation;
@@ -50,10 +84,11 @@
 -(void)		delete: (id)sender;
 -(IBAction)	cancelCreateUserSheet: (id)sender;
 
--(BOOL)	deleteUserNamed: (NSString*)userName;
+-(BOOL)		deleteUserNamed: (NSString*)userName;
 
 -(void)		startUpServer: (id)sender;
 -(void)		shutDownServer: (id)sender;
 
 -(void)		makeSureWeHaveAccessFile;
+
 @end

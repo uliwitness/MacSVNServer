@@ -1,5 +1,33 @@
+/* =============================================================================
+
+File: MASAppDelegate.m
+
+Copyright (c) 2006 by M. Uli Kusterer.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+============================================================================= */
+
+// -----------------------------------------------------------------------------
+//	Headers:
+// -----------------------------------------------------------------------------
+
 #import "MASAppDelegate.h"
-#import "UKFinderIconCell.h"
 #import "NSFileManager+CreateDirectoriesForPath.h"
 #import "UKSVNPermissions.h"
 #import <SystemConfiguration/SystemConfiguration.h>
@@ -17,6 +45,9 @@
 		if( NSRunCriticalAlertPanel( @"MAS can not run from this folder!", @"Please move the MAS folder into your \"Applications\" folder.", @"Quit", @"Run Anyway", @"" ) == NSAlertDefaultReturn )
 			[NSApp terminate: self];
 	}
+	
+	// Set up our users & groups list:
+	[usersAndGroupsView setDoubleAction: @selector(usersAndGroupsRowDoubleClicked:)];
 	
 	// Don't have a repository yet? Create it!
 	if( ![[NSFileManager defaultManager] fileExistsAtPath: REPOSITORY_FOLDER_PATH] )
@@ -64,14 +95,6 @@
 		[afBody writeToFile: PERMISSIONS_FILE_PATH atomically: NO];
 	}
 	
-	// Set up our "Users & Groups" dist view:
-	UKFinderIconCell*		bCell = [[[UKFinderIconCell alloc] init] autorelease];
-	[bCell setImagePosition: NSImageAbove];
-	[bCell setEditable: NO];
-	[usersAndGroupsView setPrototype: bCell];
-	[usersAndGroupsView setCellSize: NSMakeSize(100.0,80.0)];
-	[usersAndGroupsView setSizeToFit: YES];
-	
 	// Get list of existing users:
 	NSString		*	str = [NSString stringWithContentsOfFile: PASSWORD_FILE_PATH];
 	NSArray			*	usernames = [str componentsSeparatedByString: @"\n"];
@@ -108,30 +131,48 @@
 }
 
 
--(int)			numberOfItemsInDistributedView: (UKDistributedView*)distributedView
+- (int)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item;
 {
-	return [userList count];
-}
-
--(NSPoint)		distributedView: (UKDistributedView*)distributedView
-						positionForCell:(NSCell*)cell /* may be nil if the view only wants the item position. */
-						atItemIndex: (int)row
-{
-	NSDictionary*	dict = [userList objectAtIndex: row];
-	if( cell )
-	{
-		[cell setImage: [NSImage imageNamed: [dict objectForKey: @"type"]]];
-		[cell setTitle: [dict objectForKey: @"name"]];
-	}
-	
-	return [distributedView itemPositionBasedOnItemIndex: row];
+	if( item == nil )
+		return [userList count];
+	else
+		return 0;
 }
 
 
--(void) distributedView: (UKDistributedView*)distributedView cellDoubleClickedAtItemIndex: (int)item
+- (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
 {
-	NSDictionary*	dict = [userList objectAtIndex: item];
-	[self showCreateUserSheetForUserName: [dict objectForKey: @"name"]];
+	if( [[tableColumn identifier] isEqualToString: @"icon"] )
+		return [NSImage imageNamed: [item objectForKey: @"type"]];
+	else
+		return [item objectForKey: @"name"];
+}
+
+
+- (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item
+{
+	if( item == nil )
+		return YES;
+	else
+		return [[item objectForKey: @"type"] isEqualToString: @"group"];
+}
+
+- (id)outlineView:(NSOutlineView *)outlineView child:(int)index ofItem:(id)item
+{
+	if( item == nil )
+		return [userList objectAtIndex: index];
+	else
+		return nil;
+}
+
+
+-(void) usersAndGroupsRowDoubleClicked: (id)sender
+{
+	int				row = [usersAndGroupsView selectedRow];
+	if( row == -1 )
+		return;
+	NSDictionary*	item = [userList objectAtIndex: row];
+	[self showCreateUserSheetForUserName: [item objectForKey: @"name"]];
 }
 
 
@@ -312,7 +353,7 @@
 
 -(void)	delete: (id)sender
 {
-	int		selectedIndex = [usersAndGroupsView selectedItemIndex];
+	int		selectedIndex = [usersAndGroupsView selectedRow];
 	
 	if( selectedIndex == -1 )
 	{
@@ -329,7 +370,7 @@
 -(BOOL) validateMenuItem: (id <NSMenuItem>)menuItem
 {
 	if( [menuItem action] == @selector(delete:) )
-		return( [usersAndGroupsView selectedItemIndex] != -1 );
+		return( [usersAndGroupsView selectedRow] != -1 );
 	else
 		return [self respondsToSelector: [menuItem action]];
 }

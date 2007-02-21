@@ -11,26 +11,22 @@
 		0425660D0A86996700750E28 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0425660C0A86996700750E28 /* SystemConfiguration.framework */; };
 		3D0369650B2C7AF30044B38C /* post-commit in Resources */ = {isa = PBXBuildFile; fileRef = 3D0369640B2C7AF30044B38C /* post-commit */; };
 		3D0369740B2C7C1F0044B38C /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 3D0369730B2C7C1F0044B38C /* index.html */; };
-		3D1D1B780AE244B90086BA92 /* UKSVNBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1D1B750AE244B90086BA92 /* UKSVNBrowser.m */; };
-		3D1D1B790AE244B90086BA92 /* UKSVNPermissions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1D1B770AE244B90086BA92 /* UKSVNPermissions.m */; };
 		3D1D1B940AE244CF0086BA92 /* NSFileManager+ExistingFilesAtPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1D1B7C0AE244CF0086BA92 /* NSFileManager+ExistingFilesAtPaths.m */; };
 		3D1D1B950AE244CF0086BA92 /* NSString+ArrayWithRanges.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1D1B7E0AE244CF0086BA92 /* NSString+ArrayWithRanges.m */; };
 		3D1D1B960AE244CF0086BA92 /* UKFilePathView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1D1B800AE244CF0086BA92 /* UKFilePathView.m */; };
 		3D1D1B970AE244CF0086BA92 /* UKGraphics.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1D1B820AE244CF0086BA92 /* UKGraphics.m */; };
-		3D1D1B9C0AE244CF0086BA92 /* SCAuthorizationUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1D1B8D0AE244CF0086BA92 /* SCAuthorizationUI.m */; };
-		3D1D1B9D0AE244CF0086BA92 /* SCAuthToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1D1B8F0AE244CF0086BA92 /* SCAuthToken.m */; };
-		3D1D1BAD0AE2451B0086BA92 /* SCAuthorizationUI.nib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1D1BAB0AE2451B0086BA92 /* SCAuthorizationUI.nib */; };
 		3D1D1BC40AE2465E0086BA92 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D1D1BC30AE2465E0086BA92 /* Carbon.framework */; };
 		3D276EF30A6A5C0A0094AD8E /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 3D276EF20A6A5C0A0094AD8E /* Credits.html */; };
-		3D3031F30A6A7CED00E401DA /* UKDistributedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3031F20A6A7CED00E401DA /* UKDistributedView.m */; };
-		3D3031F80A6A7CF700E401DA /* NSBezierPathCappedBoxes.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3031F50A6A7CF700E401DA /* NSBezierPathCappedBoxes.m */; };
-		3D3031F90A6A7CF700E401DA /* UKFinderIconCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3031F60A6A7CF700E401DA /* UKFinderIconCell.m */; };
-		3D3032060A6A7D3100E401DA /* NSImage+NiceScaling.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3032050A6A7D3100E401DA /* NSImage+NiceScaling.m */; };
 		3D30324A0A6A860800E401DA /* group.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3D3032490A6A860800E401DA /* group.icns */; };
 		3D30324C0A6A860D00E401DA /* user.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3D30324B0A6A860D00E401DA /* user.icns */; };
 		3D5E0ED80A699F3F00E18439 /* MASAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5E0ED70A699F3F00E18439 /* MASAppDelegate.m */; };
 		3D5E0F450A69A7C100E18439 /* KleinRogge.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3D5E0F440A69A7C100E18439 /* KleinRogge.icns */; };
 		3D7A0F3E0A6C1073002CC05D /* NSFileManager+CreateDirectoriesForPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7A0F3D0A6C1073002CC05D /* NSFileManager+CreateDirectoriesForPath.m */; };
+		3DA05E480B8CEA7300033EE2 /* UKSVNBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA05E450B8CEA7300033EE2 /* UKSVNBrowser.m */; };
+		3DA05E490B8CEA7300033EE2 /* UKSVNPermissions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA05E470B8CEA7300033EE2 /* UKSVNPermissions.m */; };
+		3DA05E4F0B8CEA9200033EE2 /* SCAuthorizationUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA05E4C0B8CEA9200033EE2 /* SCAuthorizationUI.m */; };
+		3DA05E500B8CEA9200033EE2 /* SCAuthToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA05E4E0B8CEA9200033EE2 /* SCAuthToken.m */; };
+		3DA05E5B0B8CEB5200033EE2 /* SCAuthorizationUI.nib in Resources */ = {isa = PBXBuildFile; fileRef = 3DA05E590B8CEB5200033EE2 /* SCAuthorizationUI.nib */; };
 		3DD754B40AE766050095FC5F /* UKFileWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD754AF0AE766050095FC5F /* UKFileWatcher.m */; };
 		3DD754B50AE766050095FC5F /* UKKQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD754B10AE766050095FC5F /* UKKQueue.m */; };
 		3DD754C60AE766280095FC5F /* UKMainThreadProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD754C50AE766280095FC5F /* UKMainThreadProxy.m */; };
@@ -55,10 +51,6 @@
 		32CA4F630368D1EE00C91783 /* MAS_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAS_Prefix.pch; sourceTree = "<group>"; };
 		3D0369640B2C7AF30044B38C /* post-commit */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = "post-commit"; sourceTree = "<group>"; };
 		3D0369730B2C7C1F0044B38C /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		3D1D1B740AE244B90086BA92 /* UKSVNBrowser.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = UKSVNBrowser.h; path = ../SVNBrowser/UKSVNBrowser.h; sourceTree = SOURCE_ROOT; };
-		3D1D1B750AE244B90086BA92 /* UKSVNBrowser.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = UKSVNBrowser.m; path = ../SVNBrowser/UKSVNBrowser.m; sourceTree = SOURCE_ROOT; };
-		3D1D1B760AE244B90086BA92 /* UKSVNPermissions.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = UKSVNPermissions.h; path = ../SVNBrowser/UKSVNPermissions.h; sourceTree = SOURCE_ROOT; };
-		3D1D1B770AE244B90086BA92 /* UKSVNPermissions.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = UKSVNPermissions.m; path = ../SVNBrowser/UKSVNPermissions.m; sourceTree = SOURCE_ROOT; };
 		3D1D1B7B0AE244CF0086BA92 /* NSFileManager+ExistingFilesAtPaths.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+ExistingFilesAtPaths.h"; sourceTree = "<group>"; };
 		3D1D1B7C0AE244CF0086BA92 /* NSFileManager+ExistingFilesAtPaths.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+ExistingFilesAtPaths.m"; sourceTree = "<group>"; };
 		3D1D1B7D0AE244CF0086BA92 /* NSString+ArrayWithRanges.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = "NSString+ArrayWithRanges.h"; sourceTree = "<group>"; };
@@ -67,21 +59,8 @@
 		3D1D1B800AE244CF0086BA92 /* UKFilePathView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = UKFilePathView.m; sourceTree = "<group>"; };
 		3D1D1B810AE244CF0086BA92 /* UKGraphics.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = UKGraphics.h; sourceTree = "<group>"; };
 		3D1D1B820AE244CF0086BA92 /* UKGraphics.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = UKGraphics.m; sourceTree = "<group>"; };
-		3D1D1B8C0AE244CF0086BA92 /* SCAuthorizationUI.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SCAuthorizationUI.h; path = ../SVNBrowser/SCAuthorizationUI.h; sourceTree = SOURCE_ROOT; };
-		3D1D1B8D0AE244CF0086BA92 /* SCAuthorizationUI.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = SCAuthorizationUI.m; path = ../SVNBrowser/SCAuthorizationUI.m; sourceTree = SOURCE_ROOT; };
-		3D1D1B8E0AE244CF0086BA92 /* SCAuthToken.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SCAuthToken.h; path = ../SVNBrowser/SCAuthToken.h; sourceTree = SOURCE_ROOT; };
-		3D1D1B8F0AE244CF0086BA92 /* SCAuthToken.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = SCAuthToken.m; path = ../SVNBrowser/SCAuthToken.m; sourceTree = SOURCE_ROOT; };
-		3D1D1BAC0AE2451B0086BA92 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = ../SVNBrowser/English.lproj/SCAuthorizationUI.nib; sourceTree = SOURCE_ROOT; };
 		3D1D1BC30AE2465E0086BA92 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		3D276EF20A6A5C0A0094AD8E /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
-		3D3031F10A6A7CED00E401DA /* UKDistributedView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = UKDistributedView.h; path = ../UKDistributedView/UKDistributedView.h; sourceTree = SOURCE_ROOT; };
-		3D3031F20A6A7CED00E401DA /* UKDistributedView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = UKDistributedView.m; path = ../UKDistributedView/UKDistributedView.m; sourceTree = SOURCE_ROOT; };
-		3D3031F40A6A7CF700E401DA /* NSBezierPathCappedBoxes.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = NSBezierPathCappedBoxes.h; path = ../UKDistributedView/UKFinderIconCell/NSBezierPathCappedBoxes.h; sourceTree = SOURCE_ROOT; };
-		3D3031F50A6A7CF700E401DA /* NSBezierPathCappedBoxes.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = NSBezierPathCappedBoxes.m; path = ../UKDistributedView/UKFinderIconCell/NSBezierPathCappedBoxes.m; sourceTree = SOURCE_ROOT; };
-		3D3031F60A6A7CF700E401DA /* UKFinderIconCell.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = UKFinderIconCell.m; path = ../UKDistributedView/UKFinderIconCell/UKFinderIconCell.m; sourceTree = SOURCE_ROOT; };
-		3D3031F70A6A7CF700E401DA /* UKFinderIconCell.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = UKFinderIconCell.h; path = ../UKDistributedView/UKFinderIconCell/UKFinderIconCell.h; sourceTree = SOURCE_ROOT; };
-		3D3032040A6A7D3100E401DA /* NSImage+NiceScaling.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = "NSImage+NiceScaling.h"; path = "../UliKit/NSImage+NiceScaling.h"; sourceTree = SOURCE_ROOT; };
-		3D3032050A6A7D3100E401DA /* NSImage+NiceScaling.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = "NSImage+NiceScaling.m"; path = "../UliKit/NSImage+NiceScaling.m"; sourceTree = SOURCE_ROOT; };
 		3D3032490A6A860800E401DA /* group.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = group.icns; sourceTree = "<group>"; };
 		3D30324B0A6A860D00E401DA /* user.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = user.icns; sourceTree = "<group>"; };
 		3D5E0ED60A699F3F00E18439 /* MASAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = MASAppDelegate.h; sourceTree = "<group>"; };
@@ -89,6 +68,15 @@
 		3D5E0F440A69A7C100E18439 /* KleinRogge.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = KleinRogge.icns; sourceTree = "<group>"; };
 		3D7A0F3C0A6C1073002CC05D /* NSFileManager+CreateDirectoriesForPath.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+CreateDirectoriesForPath.h"; sourceTree = "<group>"; };
 		3D7A0F3D0A6C1073002CC05D /* NSFileManager+CreateDirectoriesForPath.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+CreateDirectoriesForPath.m"; sourceTree = "<group>"; };
+		3DA05E440B8CEA7300033EE2 /* UKSVNBrowser.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = UKSVNBrowser.h; sourceTree = "<group>"; };
+		3DA05E450B8CEA7300033EE2 /* UKSVNBrowser.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = UKSVNBrowser.m; sourceTree = "<group>"; };
+		3DA05E460B8CEA7300033EE2 /* UKSVNPermissions.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = UKSVNPermissions.h; sourceTree = "<group>"; };
+		3DA05E470B8CEA7300033EE2 /* UKSVNPermissions.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = UKSVNPermissions.m; sourceTree = "<group>"; };
+		3DA05E4B0B8CEA9200033EE2 /* SCAuthorizationUI.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SCAuthorizationUI.h; sourceTree = "<group>"; };
+		3DA05E4C0B8CEA9200033EE2 /* SCAuthorizationUI.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = SCAuthorizationUI.m; sourceTree = "<group>"; };
+		3DA05E4D0B8CEA9200033EE2 /* SCAuthToken.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SCAuthToken.h; sourceTree = "<group>"; };
+		3DA05E4E0B8CEA9200033EE2 /* SCAuthToken.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = SCAuthToken.m; sourceTree = "<group>"; };
+		3DA05E5A0B8CEB5200033EE2 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/SCAuthorizationUI.nib; sourceTree = "<group>"; };
 		3DBCDAF30A6EBD8300F954C1 /* TODO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO.txt; sourceTree = "<group>"; };
 		3DD754AE0AE766050095FC5F /* UKFileWatcher.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = UKFileWatcher.h; sourceTree = "<group>"; };
 		3DD754AF0AE766050095FC5F /* UKFileWatcher.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = UKFileWatcher.m; sourceTree = "<group>"; };
@@ -122,11 +110,10 @@
 			children = (
 				3D5E0ED60A699F3F00E18439 /* MASAppDelegate.h */,
 				3D5E0ED70A699F3F00E18439 /* MASAppDelegate.m */,
-				3D1D1B740AE244B90086BA92 /* UKSVNBrowser.h */,
-				3D1D1B750AE244B90086BA92 /* UKSVNBrowser.m */,
-				3D1D1B760AE244B90086BA92 /* UKSVNPermissions.h */,
-				3D1D1B770AE244B90086BA92 /* UKSVNPermissions.m */,
-				3D3032090A6A7D3400E401DA /* UKDistView */,
+				3DA05E440B8CEA7300033EE2 /* UKSVNBrowser.h */,
+				3DA05E450B8CEA7300033EE2 /* UKSVNBrowser.m */,
+				3DA05E460B8CEA7300033EE2 /* UKSVNPermissions.h */,
+				3DA05E470B8CEA7300033EE2 /* UKSVNPermissions.m */,
 				3D1D1B8B0AE244CF0086BA92 /* SCPlugin */,
 				3D1D1B7A0AE244CF0086BA92 /* UliKit */,
 			);
@@ -190,11 +177,11 @@
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
 				3DFB30D40B21894D004903D5 /* UKSVNBrowser.nib */,
-				3D5E0F440A69A7C100E18439 /* KleinRogge.icns */,
+				3DA05E590B8CEB5200033EE2 /* SCAuthorizationUI.nib */,
 				3D276EF20A6A5C0A0094AD8E /* Credits.html */,
+				3D5E0F440A69A7C100E18439 /* KleinRogge.icns */,
 				3D3032490A6A860800E401DA /* group.icns */,
 				3D30324B0A6A860D00E401DA /* user.icns */,
-				3D1D1BAB0AE2451B0086BA92 /* SCAuthorizationUI.nib */,
 				042565EF0A86974E00750E28 /* svn-access-file */,
 				3D0369640B2C7AF30044B38C /* post-commit */,
 				3D0369730B2C7C1F0044B38C /* index.html */,
@@ -240,27 +227,12 @@
 		3D1D1B8B0AE244CF0086BA92 /* SCPlugin */ = {
 			isa = PBXGroup;
 			children = (
-				3D1D1B8C0AE244CF0086BA92 /* SCAuthorizationUI.h */,
-				3D1D1B8D0AE244CF0086BA92 /* SCAuthorizationUI.m */,
-				3D1D1B8E0AE244CF0086BA92 /* SCAuthToken.h */,
-				3D1D1B8F0AE244CF0086BA92 /* SCAuthToken.m */,
+				3DA05E4B0B8CEA9200033EE2 /* SCAuthorizationUI.h */,
+				3DA05E4C0B8CEA9200033EE2 /* SCAuthorizationUI.m */,
+				3DA05E4D0B8CEA9200033EE2 /* SCAuthToken.h */,
+				3DA05E4E0B8CEA9200033EE2 /* SCAuthToken.m */,
 			);
 			name = SCPlugin;
-			sourceTree = "<group>";
-		};
-		3D3032090A6A7D3400E401DA /* UKDistView */ = {
-			isa = PBXGroup;
-			children = (
-				3D3031F10A6A7CED00E401DA /* UKDistributedView.h */,
-				3D3031F20A6A7CED00E401DA /* UKDistributedView.m */,
-				3D3031F40A6A7CF700E401DA /* NSBezierPathCappedBoxes.h */,
-				3D3031F50A6A7CF700E401DA /* NSBezierPathCappedBoxes.m */,
-				3D3031F60A6A7CF700E401DA /* UKFinderIconCell.m */,
-				3D3031F70A6A7CF700E401DA /* UKFinderIconCell.h */,
-				3D3032040A6A7D3100E401DA /* NSImage+NiceScaling.h */,
-				3D3032050A6A7D3100E401DA /* NSImage+NiceScaling.m */,
-			);
-			name = UKDistView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,10 +283,10 @@
 				3D30324A0A6A860800E401DA /* group.icns in Resources */,
 				3D30324C0A6A860D00E401DA /* user.icns in Resources */,
 				042565F00A86974E00750E28 /* svn-access-file in Resources */,
-				3D1D1BAD0AE2451B0086BA92 /* SCAuthorizationUI.nib in Resources */,
 				3DFB30D60B21894D004903D5 /* UKSVNBrowser.nib in Resources */,
 				3D0369650B2C7AF30044B38C /* post-commit in Resources */,
 				3D0369740B2C7C1F0044B38C /* index.html in Resources */,
+				3DA05E5B0B8CEB5200033EE2 /* SCAuthorizationUI.nib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,23 +299,19 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				3D5E0ED80A699F3F00E18439 /* MASAppDelegate.m in Sources */,
-				3D3031F30A6A7CED00E401DA /* UKDistributedView.m in Sources */,
-				3D3031F80A6A7CF700E401DA /* NSBezierPathCappedBoxes.m in Sources */,
-				3D3031F90A6A7CF700E401DA /* UKFinderIconCell.m in Sources */,
-				3D3032060A6A7D3100E401DA /* NSImage+NiceScaling.m in Sources */,
 				3D7A0F3E0A6C1073002CC05D /* NSFileManager+CreateDirectoriesForPath.m in Sources */,
-				3D1D1B780AE244B90086BA92 /* UKSVNBrowser.m in Sources */,
-				3D1D1B790AE244B90086BA92 /* UKSVNPermissions.m in Sources */,
 				3D1D1B940AE244CF0086BA92 /* NSFileManager+ExistingFilesAtPaths.m in Sources */,
 				3D1D1B950AE244CF0086BA92 /* NSString+ArrayWithRanges.m in Sources */,
 				3D1D1B960AE244CF0086BA92 /* UKFilePathView.m in Sources */,
 				3D1D1B970AE244CF0086BA92 /* UKGraphics.m in Sources */,
-				3D1D1B9C0AE244CF0086BA92 /* SCAuthorizationUI.m in Sources */,
-				3D1D1B9D0AE244CF0086BA92 /* SCAuthToken.m in Sources */,
 				3DD754B40AE766050095FC5F /* UKFileWatcher.m in Sources */,
 				3DD754B50AE766050095FC5F /* UKKQueue.m in Sources */,
 				3DD754C60AE766280095FC5F /* UKMainThreadProxy.m in Sources */,
 				3DFB30C20B218866004903D5 /* UKNibOwner.m in Sources */,
+				3DA05E480B8CEA7300033EE2 /* UKSVNBrowser.m in Sources */,
+				3DA05E490B8CEA7300033EE2 /* UKSVNPermissions.m in Sources */,
+				3DA05E4F0B8CEA9200033EE2 /* SCAuthorizationUI.m in Sources */,
+				3DA05E500B8CEA9200033EE2 /* SCAuthToken.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,10 +334,10 @@
 			name = MainMenu.nib;
 			sourceTree = "<group>";
 		};
-		3D1D1BAB0AE2451B0086BA92 /* SCAuthorizationUI.nib */ = {
+		3DA05E590B8CEB5200033EE2 /* SCAuthorizationUI.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3D1D1BAC0AE2451B0086BA92 /* English */,
+				3DA05E5A0B8CEB5200033EE2 /* English */,
 			);
 			name = SCAuthorizationUI.nib;
 			sourceTree = "<group>";

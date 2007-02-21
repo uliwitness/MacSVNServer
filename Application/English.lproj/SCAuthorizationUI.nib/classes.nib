@@ -1,0 +1,19 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = SCAuthToken; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {authorize = id; cancel = id; }; 
+            CLASS = SCAuthorizationUI; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                authWindow = id; 
+                controller = id; 
+                passwordField = NSTextField; 
+                usernameField = NSTextField; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

@@ -2,4 +2,4 @@ You will need to put the following files into this folder to build MAS:
 
 libxml2-2.6.26.tar.gzsubversion-1.4.0.tar.gzstunnel-4.14.tar.gzexpat-2.0.0.tar.gzapr-1.2.7.tar.gzhttpd-2.2.3.tar.gzapr-util-1.2.7.tar.gzneon-0.26.0.tar.gzgettext-0.15.tar.gz
 
-You can get them from the iDisk of 'wsanchez'.
+You can get them from the "Downloads" section of this project's SourceForge project page at http://sourceforge.net/project/showfiles.php?group_id=189968 or from the iDisk of 'wsanchez', who is the original provider of these packages.

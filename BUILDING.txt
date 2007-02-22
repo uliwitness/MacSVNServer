@@ -1,0 +1,13 @@
+To build MAS, do the following:
+
+1) Open Application/MAS.xcodeproj and build.
+
+2) Copy the resulting MAS.app file into your /Applications folder.
+
+3) Make sure you've downloaded the packages for the ExternalDependencies/Archives/ folder (see ExternalDependencies/Archives/DIRECTIONS.txt)
+
+4) Run the ./buildmas.sh shell script
+
+You can now run the copy of MAS in your /Applications folder.
+
+Have fun, and please contribute what you can!

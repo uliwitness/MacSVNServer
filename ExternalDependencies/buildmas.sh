@@ -6,12 +6,11 @@ die()
 	exit 1
 }
 
-MAS_PREFIX="/Applications/MAS.app/Contents/Resources/MAS"
-
 # Get full path of folder containing this script:
 WORKING_DIR="`dirname $0`"	# This may give a relative path.
 cd "$WORKING_DIR"
 WORKING_DIR="`pwd`"		# pwd always gives absolute paths.
+MAS_PREFIX="$WORKING_DIR/../Application/build/Release/MAS.app/Contents/Resources/MAS"
 SOURCES_DIR="`echo $WORKING_DIR`/Sources/"
 
 # Have a sources folder? Use it, otherwise extract stuff from
@@ -21,57 +20,57 @@ then
     echo "Using existing Sources folder."
     cd $SOURCES_DIR
 else
-mkdir Sources
-cd $SOURCES_DIR
+	mkdir Sources
+	cd $SOURCES_DIR
 
-echo "############################################################"
-echo "# UNPACKING SOURCES"
+	echo "############################################################"
+	echo "# UNPACKING SOURCES"
 
-HTTPD_ARCHIVE="`find ../Archives/ -name 'httpd-*.tar.gz' -print -maxdepth 1`"
-LIBXML_ARCHIVE="`find ../Archives/ -name 'libxml2-*.tar.gz' -print -maxdepth 1`"
-EXPAT_ARCHIVE="`find ../Archives/ -name 'expat-*.tar.gz' -print -maxdepth 1`"
-SVN_ARCHIVE="`find ../Archives/ -name 'subversion-*.tar.gz' -print -maxdepth 1`"
-GETTEXT_ARCHIVE="`find ../Archives/ -name 'gettext-*.tar.gz' -print -maxdepth 1`"
+	HTTPD_ARCHIVE="`find ../Archives -name 'httpd-*.tar.gz' -print -maxdepth 1`"
+	LIBXML_ARCHIVE="`find ../Archives -name 'libxml2-*.tar.gz' -print -maxdepth 1`"
+	EXPAT_ARCHIVE="`find ../Archives -name 'expat-*.tar.gz' -print -maxdepth 1`"
+	SVN_ARCHIVE="`find ../Archives -name 'subversion-*.tar.gz' -print -maxdepth 1`"
+	GETTEXT_ARCHIVE="`find ../Archives -name 'gettext-*.tar.gz' -print -maxdepth 1`"
 
-echo "$HTTPD_ARCHIVE"
-tar -xzf "$HTTPD_ARCHIVE"
-echo "$LIBXML_ARCHIVE"
-tar -xzf "$LIBXML_ARCHIVE"
-echo "$EXPAT_ARCHIVE"
-tar -xzf "$EXPAT_ARCHIVE"
-echo "$SVN_ARCHIVE"
-tar -xzf "$SVN_ARCHIVE"
-echo "$GETTEXT_ARCHIVE"
-tar -xzf "$GETTEXT_ARCHIVE"
-
-
-echo "############################################################"
-echo "# MOVING FOLDERS TO SOURCES FOLDER UNDER STANDARD NAME"
-
-HTTPD_FOLDER="`find . -name 'httpd-*[^z]' -print -maxdepth 1`"
-LIBXML_FOLDER="`find . -name 'libxml2-*[^z]' -print -maxdepth 1`"
-EXPAT_FOLDER="`find . -name 'expat-*[^z]' -print -maxdepth 1`"
-SVN_FOLDER="`find . -name 'subversion-*[^z]' -print -maxdepth 1`"
-GETTEXT_FOLDER="`find . -name 'gettext-*[^z]' -print -maxdepth 1`"
-
-echo "$HTTPD_FOLDER"
-mv "$HTTPD_FOLDER" ./httpd
-echo "$LIBXML_FOLDER"
-mv "$LIBXML_FOLDER" ./libxml2
-echo "$EXPAT_FOLDER"
-mv "$EXPAT_FOLDER" ./expat
-echo "$SVN_FOLDER"
-mv "$SVN_FOLDER" ./subversion
-echo "$GETTEXT_FOLDER"
-mv "$GETTEXT_FOLDER" ./gettext
+	echo "$HTTPD_ARCHIVE"
+	tar -xzf "$HTTPD_ARCHIVE"
+	echo "$LIBXML_ARCHIVE"
+	tar -xzf "$LIBXML_ARCHIVE"
+	echo "$EXPAT_ARCHIVE"
+	tar -xzf "$EXPAT_ARCHIVE"
+	echo "$SVN_ARCHIVE"
+	tar -xzf "$SVN_ARCHIVE"
+	echo "$GETTEXT_ARCHIVE"
+	tar -xzf "$GETTEXT_ARCHIVE"
 
 
-echo "############################################################"
-echo "# CREATING SYMLINKS TO PACKAGES SVN INCLUDES"
+	echo "############################################################"
+	echo "# MOVING FOLDERS TO SOURCES FOLDER UNDER STANDARD NAME"
 
-ln -s subversion/apr apr
-ln -s subversion/apr-util apr-util
-ln -s subversion/neon neon
+	HTTPD_FOLDER="`find . -name 'httpd-*[^z]' -print -maxdepth 1`"
+	LIBXML_FOLDER="`find . -name 'libxml2-*[^z]' -print -maxdepth 1`"
+	EXPAT_FOLDER="`find . -name 'expat-*[^z]' -print -maxdepth 1`"
+	SVN_FOLDER="`find . -name 'subversion-*[^z]' -print -maxdepth 1`"
+	GETTEXT_FOLDER="`find . -name 'gettext-*[^z]' -print -maxdepth 1`"
+
+	echo "$HTTPD_FOLDER"
+	mv "$HTTPD_FOLDER" ./httpd
+	echo "$LIBXML_FOLDER"
+	mv "$LIBXML_FOLDER" ./libxml2
+	echo "$EXPAT_FOLDER"
+	mv "$EXPAT_FOLDER" ./expat
+	echo "$SVN_FOLDER"
+	mv "$SVN_FOLDER" ./subversion
+	echo "$GETTEXT_FOLDER"
+	mv "$GETTEXT_FOLDER" ./gettext
+
+
+	echo "############################################################"
+	echo "# CREATING SYMLINKS TO PACKAGES SVN INCLUDES"
+
+	ln -s subversion/apr apr
+	ln -s subversion/apr-util apr-util
+	ln -s subversion/neon neon
 fi
 
 # the following needs to be before any builds so it doesn't

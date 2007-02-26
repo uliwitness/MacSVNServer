@@ -13,15 +13,15 @@
 #============================================================================================================================
 
 # Get full path of folder containing this script:
-WORKING_DIR="`dirname $0`"	# This may give a relative path.
-cd "$WORKING_DIR"
-WORKING_DIR="`pwd`"			# pwd always gives absolute paths.
+WORKING_DIR="`dirname $0`"  # This may give a relative path.
+cd "$WORKING_DIR"           # switch to the same path as this script
+WORKING_DIR="`pwd`"         # pwd always gives absolute paths.
 
 
 # log to file, and display on stdout at the same time
 # taken from http://www.travishartwell.net/blog/2006/08/19_2220
 # ---------------------------------------------------------------------------------------------------------------------------
-OUTPUT_LOG="$WORKING_DIR/build.log"
+OUTPUT_LOG="$WORKING_DIR/build.log"    # absolute path must be used because on exit the current directory may be different
 OUTPUT_PIPE="$WORKING_DIR/build.pipe"
 
 if [ ! -e $OUTPUT_PIPE ]; then mkfifo $OUTPUT_PIPE; fi
@@ -94,9 +94,6 @@ else
 	echo "* checking Archives folder for correct contents"
 	
 	ISERROR=false
-	#!## locate expat source code archive
-	#!#EXPAT_ARCHIVE="`find Archives -name 'expat-*.tar.gz' -print -maxdepth 1 2>/dev/null`"
-	#!#if ! [ -n "$EXPAT_ARCHIVE" ]; then echo "! expat source code archive is missing"; echo "  expecting 'macsvnserver/ExternalDependencies/Archives/expat-?.?.?.tar.gz'"; ISERROR=true; fi
 	# locate libxml source code archive
 	LIBXML_ARCHIVE="`find Archives -name 'libxml2-*.tar.gz' -print -maxdepth 1 2>/dev/null`"
 	if ! [ -n "$LIBXML_ARCHIVE" ]; then echo "! libxml source code archive is missing"; echo "  expecting 'macsvnserver/ExternalDependencies/Archives/libxml2-?.?.?.tar.gz'"; ISERROR=true; fi
@@ -106,6 +103,9 @@ else
 	# locate neon source code archive
 	NEON_ARCHIVE="`find Archives -name 'neon-*.tar.gz' -print -maxdepth 1 2>/dev/null`"
 	if ! [ -n "$NEON_ARCHIVE" ]; then echo "! neon source code archive is missing"; echo "  expecting 'macsvnserver/ExternalDependencies/Archives/neon-?.?.?.tar.gz'"; ISERROR=true; fi
+	# locate expat source code archive
+	EXPAT_ARCHIVE="`find Archives -name 'expat-*.tar.gz' -print -maxdepth 1 2>/dev/null`"
+	if ! [ -n "$EXPAT_ARCHIVE" ]; then echo "! expat source code archive is missing"; echo "  expecting 'macsvnserver/ExternalDependencies/Archives/expat-?.?.?.tar.gz'"; ISERROR=true; fi
 	# locate apr source code archive
 	APR_ARCHIVE="`find Archives -regex '.*/apr-[^u]*\.tar\.gz' -print -maxdepth 1 2>/dev/null`"
 	if ! [ -n "$APR_ARCHIVE" ]; then echo "! apr source code archive is missing"; echo "  expecting 'macsvnserver/ExternalDependencies/Archives/apr-?.?.?.tar.gz'"; ISERROR=true; fi
@@ -135,14 +135,14 @@ else
 	cd $SOURCES_DIR
 
 	# extract the archives into the Sources directory
-	#!#echo "* extracting $EXPAT_ARCHIVE..."
-	#!#tar -xzf "../$EXPAT_ARCHIVE"
 	echo "* extracting $LIBXML_ARCHIVE..."
 	tar -xzf "../$LIBXML_ARCHIVE"
 	echo "* extracting $GETTEXT_ARCHIVE..."
 	tar -xzf "../$GETTEXT_ARCHIVE"
 	echo "* extracting $NEON_ARCHIVE..."
 	tar -xzf "../$NEON_ARCHIVE"
+	echo "* extracting $EXPAT_ARCHIVE..."
+	tar -xzf "../$EXPAT_ARCHIVE"
 	echo "* extracting $APR_ARCHIVE..."
 	tar -xzf "../$APR_ARCHIVE"
 	echo "* extracting $APRUTIL_ARCHIVE..."
@@ -156,23 +156,23 @@ else
 	echo "renaming source folders to exclude version number"
 	echo "-------------------------------------------------------------------------------"
 	
-	#!EXPAT_FOLDER="`find . -name 'expat-*[^z]' -print -maxdepth 1`"
 	LIBXML_FOLDER="`find . -name 'libxml2-*[^z]' -print -maxdepth 1`"
 	GETTEXT_FOLDER="`find . -name 'gettext-*[^z]' -print -maxdepth 1`"
 	NEON_FOLDER="`find . -name 'neon-*[^z]' -print -maxdepth 1`"
+	EXPAT_FOLDER="`find . -name 'expat-*[^z]' -print -maxdepth 1`"
 	APR_FOLDER="`find . -regex '.*/apr-[^u]*' -print -maxdepth 1`"
 	APRUTIL_FOLDER="`find . -name 'apr-util-*[^z]' -print -maxdepth 1`"
 	HTTPD_FOLDER="`find . -name 'httpd-*[^z]' -print -maxdepth 1`"
 	SVN_FOLDER="`find . -name 'subversion-*[^z]' -print -maxdepth 1`"
 	
-	#!#echo "* $EXPAT_FOLDER > ./expat"
-	#!#mv "$EXPAT_FOLDER" ./expat
 	echo "* $LIBXML_FOLDER > ./libxml2"
 	mv "$LIBXML_FOLDER" ./libxml2
 	echo "* $GETTEXT_FOLDER > ./gettext"
 	mv "$GETTEXT_FOLDER" ./gettext
 	echo "* $NEON_FOLDER > ./neon"
 	mv "$NEON_FOLDER" ./neon
+	echo "* $EXPAT_FOLDER > ./expat"
+	mv "$EXPAT_FOLDER" ./expat
 	echo "* $APR_FOLDER > ./apr"
 	mv "$APR_FOLDER" ./apr
 	echo "* $APRUTIL_FOLDER > ./apr-util"
@@ -243,7 +243,7 @@ echo "==========================================================================
 echo "configuring gettext"
 echo "-------------------------------------------------------------------------------"
 cd ../gettext
-./configure $QUIET --prefix=$MAS_PREFIX --enable-csharp=no
+./configure $QUIET --prefix=$MAS_PREFIX --enable-csharp=no --enable-relocatable
 if [ $? -gt 0 ]; then die "! configuring of gettext failed" 31; fi
 
 echo "-------------------------------------------------------------------------------"
@@ -288,57 +288,82 @@ echo "@ neon was built"
 
 echo ""
 echo "==============================================================================="
-echo "[5] building Apache Portable Runtime"
+echo "[5] building expat"
+echo "==============================================================================="
+echo "configuring expat"
+echo "-------------------------------------------------------------------------------"
+cd ../expat
+./configure $QUIET --prefix=$MAS_PREFIX
+if [ $? -gt 0 ]; then die "! configuring of expat failed" 51; fi
+	
+echo "-------------------------------------------------------------------------------"
+echo "compiling expat"
+echo "-------------------------------------------------------------------------------"
+make $QUIET
+if [ $? -gt 0 ]; then die "! building of expat failed" 52; fi
+	
+echo "-------------------------------------------------------------------------------"
+echo "installing expat"
+echo "-------------------------------------------------------------------------------"
+make $QUIET install
+if [ $? -gt 0 ]; then die "! installing of expat failed" 53; fi
+echo "@ expat was built"
+
+
+
+echo ""
+echo "==============================================================================="
+echo "[6] building Apache Portable Runtime"
 echo "==============================================================================="
 echo "configuring apr"
 echo "-------------------------------------------------------------------------------"
 cd ../apr
 ./configure $QUIET --prefix=$MAS_PREFIX --with-libs=${MAS_PREFIX}:/usr
-if [ $? -gt 0 ]; then die "! configuring of apr failed" 51; fi
+if [ $? -gt 0 ]; then die "! configuring of apr failed" 61; fi
 
 echo "-------------------------------------------------------------------------------"
 echo "compiling apr"
 echo "-------------------------------------------------------------------------------"
 make $QUIET
-if [ $? -gt 0 ]; then die "! building of apr failed" 52; fi
+if [ $? -gt 0 ]; then die "! building of apr failed" 62; fi
 
 echo "-------------------------------------------------------------------------------"
 echo "installing apr"
 echo "-------------------------------------------------------------------------------"
 make $QUIET install
-if [ $? -gt 0 ]; then die "! installing of apr failed" 53; fi
+if [ $? -gt 0 ]; then die "! installing of apr failed" 63; fi
 echo "@ apr was built"
 
 
 
 echo ""
 echo "==============================================================================="
-echo "[6] building apr-util"
+echo "[7] building apr-util"
 echo "==============================================================================="
 echo "configuring apr-util"
 echo "-------------------------------------------------------------------------------"
 cd ../apr-util
-./configure $QUIET --prefix=$MAS_PREFIX --with-libs=${MAS_PREFIX}:/usr --with-apr=$MAS_PREFIX --with-iconv=/usr
-if [ $? -gt 0 ]; then die "! configuring of apr-util failed" 61; fi
+./configure $QUIET --prefix=$MAS_PREFIX --with-libs=${MAS_PREFIX}:/usr --with-apr=$MAS_PREFIX --with-expat=$MAS_PREFIX --with-iconv=/usr
+if [ $? -gt 0 ]; then die "! configuring of apr-util failed" 71; fi
 
 echo "-------------------------------------------------------------------------------"
 echo "compiling apr-util"
 echo "-------------------------------------------------------------------------------"
 make $QUIET
-if [ $? -gt 0 ]; then die "! building of apr-util failed" 62; fi
+if [ $? -gt 0 ]; then die "! building of apr-util failed" 72; fi
 	
 echo "-------------------------------------------------------------------------------"
 echo "installing apr-util"
 echo "-------------------------------------------------------------------------------"
 make $QUIET install
-if [ $? -gt 0 ]; then die "! installing of apr-util failed" 63; fi
+if [ $? -gt 0 ]; then die "! installing of apr-util failed" 73; fi
 echo "@ apr-util was built"
 
 
 
 echo ""
 echo "==============================================================================="
-echo "[7] building Apache 2"
+echo "[8] building Apache 2"
 echo "==============================================================================="
 echo "configuring httpd"
 echo "-------------------------------------------------------------------------------"
@@ -346,44 +371,44 @@ cd ../httpd
 make $QUIET clean 2>/dev/null
 make $QUIET distclean 2>/dev/null
 ./configure $QUIET --prefix=$MAS_PREFIX --with-libs=${MAS_PREFIX}:/usr --with-apr=$MAS_PREFIX --with-apr-util=$MAS_PREFIX --enable-so --enable-dav-fs --enable-dav-lock --enable-dav --enable-static-htpasswd --enable-static-support --disable-authn-dbd --without-sqlite --with-port=8800
-if [ $? -gt 0 ]; then die "! configuring of httpd failed" 71; fi
+if [ $? -gt 0 ]; then die "! configuring of httpd failed" 81; fi
 
 echo "-------------------------------------------------------------------------------"
 echo "compiling httpd"
 echo "-------------------------------------------------------------------------------"
 make $QUIET
-if [ $? -gt 0 ]; then die "! building of httpd failed" 72; fi
+if [ $? -gt 0 ]; then die "! building of httpd failed" 82; fi
 
 echo "-------------------------------------------------------------------------------"
 echo "installing httpd"
 echo "-------------------------------------------------------------------------------"
 make $QUIET install
-if [ $? -gt 0 ]; then die "! installing of httpd failed" 73; fi
+if [ $? -gt 0 ]; then die "! installing of httpd failed" 83; fi
 echo "@ httpd was built"
 
 
 
 echo ""
 echo "==============================================================================="
-echo "[8] building subversion"
+echo "[9] building subversion"
 echo "==============================================================================="
 echo "configuring subversion"
 echo "-------------------------------------------------------------------------------"
 cd ../subversion
 ./configure $QUIET --prefix=$MAS_PREFIX --with-libs=${MAS_PREFIX}:/usr --with-apr=$MAS_PREFIX --with-apr-util=$MAS_PREFIX --with-apxs=${MAS_PREFIX}/bin/apxs --with-neon=${MAS_PREFIX} --without-berkeley-db
-if [ $? -gt 0 ]; then die "! configuring of subversion failed" 81; fi
+if [ $? -gt 0 ]; then die "! configuring of subversion failed" 91; fi
 
 echo "-------------------------------------------------------------------------------"
 echo "compiling subversion"
 echo "-------------------------------------------------------------------------------"
 make $QUIET
-if [ $? -gt 0 ]; then die "! building of subversion failed" 82; fi
+if [ $? -gt 0 ]; then die "! building of subversion failed" 92; fi
 
 echo "-------------------------------------------------------------------------------"
 echo "installing subversion"
 echo "-------------------------------------------------------------------------------"
 make $QUIET install
-if [ $? -gt 0 ]; then die "! installing of subversion failed" 83; fi
+if [ $? -gt 0 ]; then die "! installing of subversion failed" 93; fi
 echo "@ subversion was built"
 
 echo ""

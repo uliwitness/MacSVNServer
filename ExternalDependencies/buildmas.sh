@@ -74,7 +74,7 @@ fi
 
 echo ""
 echo "==============================================================================="
-echo "[1] source code preperation"
+echo "[1] source code preparation"
 echo "==============================================================================="
 
 # location the source code will be unpacked and compiled from
@@ -199,7 +199,7 @@ echo "--------------------------------------------------------------------------
 cd subversion
 make $QUIET clean 2>/dev/null  # don't print the "no rule to make 'clean'" error
 make $QUIET distclean 2>/dev/null
-echo "@ preperation is complete"
+echo "@ preparation is complete"
 
 
 

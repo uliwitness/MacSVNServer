@@ -30,10 +30,16 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #import "MASAppDelegate.h"
 #import "NSFileManager+CreateDirectoriesForPath.h"
 #import "UKSVNPermissions.h"
+#import "NSTextView+SetUnstyledStringValue.h"
 #import <SystemConfiguration/SystemConfiguration.h>
 
 
 @implementation MASAppDelegate
+
+-(void)	awakeFromNib
+{
+	[urlField setDelegate: self];
+}
 
 -(void)	applicationDidFinishLaunching: (NSNotification*)notification
 {
@@ -145,7 +151,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	if( [[tableColumn identifier] isEqualToString: @"icon"] )
 		return [NSImage imageNamed: [item objectForKey: @"type"]];
 	else
-		return [item objectForKey: @"name"];
+		return [item objectForKey: [tableColumn identifier]];
 }
 
 
@@ -401,7 +407,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -(void)		shutDownServer: (id)sender
 {
-	[urlField setString: @"Shutting Down..."];
+	[urlField setUnstyledStringValue: @"Shutting Down..."];
 	[startButton setEnabled: NO];
 	[progress startAnimation: self];
 	// Applications/MAS/bin/apachectl stop
@@ -414,7 +420,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 			[NSApp sendEvent: theEvent];
 	}
 	[progress stopAnimation: self];
-	[urlField setString: @"<not running>"];
+	[urlField setUnstyledStringValue: @"<not running>"];
 	[startButton setTitle: @"Start"];
 	[startButton setEnabled: YES];
 	isRunning = NO;
@@ -449,7 +455,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	
 	[self makeSureWeHaveAccessFile];
 
-	[urlField setString: @"Starting up..."];
+	[urlField setUnstyledStringValue: @"Starting up..."];
 	[startButton setEnabled: NO];
 	[progress startAnimation: self];
 	// Applications/MAS/bin/apachectl start
@@ -477,6 +483,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	[startButton setTitle: @"Stop"];
 	[startButton setEnabled: YES];
 	isRunning = YES;
+}
+
+
+-(BOOL) textView: (NSTextView*)textView clickedOnLink: (id)link
+{
+	NSLog(@"foo");
+	return YES;
 }
 
 

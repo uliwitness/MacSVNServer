@@ -30,6 +30,7 @@
 		3DD754B40AE766050095FC5F /* UKFileWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD754AF0AE766050095FC5F /* UKFileWatcher.m */; };
 		3DD754B50AE766050095FC5F /* UKKQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD754B10AE766050095FC5F /* UKKQueue.m */; };
 		3DD754C60AE766280095FC5F /* UKMainThreadProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD754C50AE766280095FC5F /* UKMainThreadProxy.m */; };
+		3DE2F2350BA0B9E200A71444 /* NSTextView+SetUnstyledStringValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2F2340BA0B9E200A71444 /* NSTextView+SetUnstyledStringValue.m */; };
 		3DFB30C20B218866004903D5 /* UKNibOwner.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB30C10B218866004903D5 /* UKNibOwner.m */; };
 		3DFB30D60B21894D004903D5 /* UKSVNBrowser.nib in Resources */ = {isa = PBXBuildFile; fileRef = 3DFB30D40B21894D004903D5 /* UKSVNBrowser.nib */; };
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
@@ -84,6 +85,8 @@
 		3DD754B10AE766050095FC5F /* UKKQueue.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = UKKQueue.m; sourceTree = "<group>"; };
 		3DD754C40AE766280095FC5F /* UKMainThreadProxy.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = UKMainThreadProxy.h; sourceTree = "<group>"; };
 		3DD754C50AE766280095FC5F /* UKMainThreadProxy.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = UKMainThreadProxy.m; sourceTree = "<group>"; };
+		3DE2F2330BA0B9E200A71444 /* NSTextView+SetUnstyledStringValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSTextView+SetUnstyledStringValue.h"; path = "../UliKit/NSTextView+SetUnstyledStringValue.h"; sourceTree = SOURCE_ROOT; };
+		3DE2F2340BA0B9E200A71444 /* NSTextView+SetUnstyledStringValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSTextView+SetUnstyledStringValue.m"; path = "../UliKit/NSTextView+SetUnstyledStringValue.m"; sourceTree = SOURCE_ROOT; };
 		3DFB30B90B218851004903D5 /* UKNibOwner.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = UKNibOwner.h; sourceTree = "<group>"; };
 		3DFB30C10B218866004903D5 /* UKNibOwner.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = UKNibOwner.m; sourceTree = "<group>"; };
 		3DFB30D50B21894D004903D5 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/UKSVNBrowser.nib; sourceTree = "<group>"; };
@@ -108,6 +111,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3DE2F2330BA0B9E200A71444 /* NSTextView+SetUnstyledStringValue.h */,
+				3DE2F2340BA0B9E200A71444 /* NSTextView+SetUnstyledStringValue.m */,
 				3D5E0ED60A699F3F00E18439 /* MASAppDelegate.h */,
 				3D5E0ED70A699F3F00E18439 /* MASAppDelegate.m */,
 				3DA05E440B8CEA7300033EE2 /* UKSVNBrowser.h */,
@@ -312,6 +317,7 @@
 				3DA05E490B8CEA7300033EE2 /* UKSVNPermissions.m in Sources */,
 				3DA05E4F0B8CEA9200033EE2 /* SCAuthorizationUI.m in Sources */,
 				3DA05E500B8CEA9200033EE2 /* SCAuthToken.m in Sources */,
+				3DE2F2350BA0B9E200A71444 /* NSTextView+SetUnstyledStringValue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

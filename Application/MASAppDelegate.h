@@ -40,11 +40,11 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //	@"foo" "bar" instead of @"foobar". Note how the second
 //	string doesn't have an at sign.
 #define USERDATA_PATH				@"/Library/Application Support/MAS/"
-#define BASE_PATH					@"/Applications/MAS.app/Contents/Resources/MAS/"
+#define BASE_PATH					@"/usr/"
 #define GUI_APP_PATH				@"/Applications/MAS.app"
-#define	PASSWORD_APP_PATH			BASE_PATH "bin/htpasswd"
+#define	PASSWORD_APP_PATH			BASE_PATH "sbin/htpasswd"
 #define	SVNADMIN_APP_PATH			BASE_PATH "bin/svnadmin"
-#define	APACHECTL_PATH				BASE_PATH "bin/apachectl"
+#define	APACHECTL_PATH				BASE_PATH "sbin/apachectl"
 #define	HTDOCS_FOLDER_PATH			USERDATA_PATH "htdocs/"
 #define	HTML_INDEX_FILE_PATH		HTDOCS_FOLDER_PATH "index.html"
 #define	PASSWORD_FILE_PATH			USERDATA_PATH "svn-auth-file"
